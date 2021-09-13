@@ -19,7 +19,7 @@ import {
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Box from "@material-ui/core/Box";
-
+import logo from "../../assets/images/FreshBytesLogoOnlyWhite.png";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
@@ -40,10 +40,18 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Oswald, monospace",
     fontWeight: 300,
     letterSpacing: "5px",
+    marginLeft: ".5rem",
   },
   row: {
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
+  },
+  logo: {
+    maxHeight: "60px",
+  },
+  brandWrapper: {
+    display: "flex",
     alignItems: "center",
   },
 }));
@@ -111,7 +119,12 @@ export default function MenuAppBar() {
           {isMobile ? (
             <>
               <Link to="/">
-                <Box p={1}>
+                <Box p={1} className={classes.brandWrapper}>
+                  <img
+                    src={logo}
+                    alt="fresh bytes logo"
+                    className={classes.logo}
+                  />
                   <Typography variant="h5" className={classes.navBrand}>
                     FBK
                   </Typography>
@@ -157,7 +170,12 @@ export default function MenuAppBar() {
           ) : (
             <>
               <Link to="/">
-                <Box p={1}>
+                <Box p={1} className={classes.brandWrapper}>
+                  <img
+                    src={logo}
+                    alt="fresh bytes logo"
+                    className={classes.logo}
+                  />
                   <Typography variant="h5" className={classes.navBrand}>
                     FBK
                   </Typography>
