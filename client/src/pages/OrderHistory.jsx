@@ -87,9 +87,11 @@ function OrderHistory() {
                               ></CardMedia>
                             </Link>
                             <Box className={classes.box} pt={1}>
-                              <Typography variant="h6" noWrap={true}>
-                                {name} {quantity && `x ${quantity}`}
-                              </Typography>
+                              <Box style={{ maxWidth: "95%" }}>
+                                <Typography variant="h6" noWrap={true}>
+                                  {name} {quantity && `x ${quantity}`}
+                                </Typography>
+                              </Box>
                               <Box pb={1}>
                                 <span>${price}</span>
                               </Box>
