@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Typography from "@material-ui/core/Typography";
+import { Typography, theme, useMediaQuery } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Container, Box } from "@material-ui/core";
 import { Link, scroller, scrollToTop, animateScroll } from "react-scroll";
@@ -84,12 +84,16 @@ function CategoryMenu() {
   };
 
   const scrollToItem = (item) => {
+    const isMobile = window.outerWidth < 968;
+    let offsetVal;
+    isMobile ? (offsetVal = -80) : (offsetVal = -60);
     scroller.scrollTo(item, {
-      offset: -60,
+      offset: offsetVal,
       smooth: true,
       isDynamic: true,
       duration: 600,
     });
+    // console.log(isMobile);
   };
 
   const resetScroll = () => {
@@ -97,7 +101,7 @@ function CategoryMenu() {
     const scroll = animateScroll;
     scroll.scrollToTop({ delay: 0, duration: 400 });
   };
-  console.log(expandCount);
+  // console.log(expandCount);
   return (
     <Container maxWidth="lg" style={{ marginTop: "2rem" }}>
       {categories.map((item) => (
