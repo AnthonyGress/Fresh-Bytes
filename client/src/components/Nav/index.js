@@ -139,13 +139,13 @@ export default function MenuAppBar() {
                   id="menu-appbar"
                   anchorEl={anchorEl}
                   anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
+                    vertical: "bottom",
+                    horizontal: "center",
                   }}
                   keepMounted
                   transformOrigin={{
                     vertical: "top",
-                    horizontal: "right",
+                    horizontal: "center",
                   }}
                   open={open}
                   onClose={handleClose}

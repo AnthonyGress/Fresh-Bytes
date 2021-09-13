@@ -64,6 +64,10 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
+    paddingTop: "env(safe-area-inset-top, 0) !important",
+    paddingLeft: "env(safe-area-inset-left, 0) !important",
+    paddingRight: "env(safe-area-inset-right, 0) !important",
+    paddingBottom: "0 !important",
   },
   content: {
     flexGrow: 1,
