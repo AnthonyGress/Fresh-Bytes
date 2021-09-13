@@ -33,12 +33,6 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  menu: {
-    paddingTop: "env(safe-area-inset-top, 0) !important",
-    paddingLeft: "env(safe-area-inset-left, 0) !important",
-    paddingRight: "env(safe-area-inset-right, 0) !important",
-    paddingBottom: "0 !important",
-  },
   nav: {
     backgroundColor: theme.palette.primary.main,
   },
@@ -145,7 +139,7 @@ export default function MenuAppBar() {
                   id="menu-appbar"
                   anchorEl={anchorEl}
                   anchorOrigin={{
-                    vertical: "bottom",
+                    vertical: "top",
                     horizontal: "center",
                   }}
                   keepMounted
@@ -155,7 +149,6 @@ export default function MenuAppBar() {
                   }}
                   open={open}
                   onClose={handleClose}
-                  className={classes.menu}
                 >
                   {userActions()}
                 </Menu>
