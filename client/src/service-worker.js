@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-const CACHE_NAME = "fresh-bytes-cache";
+const CACHE_NAME = "fresh-bytes.appcache";
 const urlsToCache = [
   "/",
   "icons/icon-72x72.png",
@@ -63,7 +63,57 @@ const urlsToCache = [
   "favicons/favicon.ico",
 ];
 
-// eslint-disable-next-line no-restricted-globals
+// // eslint-disable-next-line no-restricted-globals
+// self.addEventListener("install", (event) => {
+//   self.skipWaiting();
+
+//   event.waitUntil(
+//     caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
+//   );
+// });
+
+// self.addEventListener("fetch", (event) => {
+//   event.respondWith(
+//     caches.match(event.request).then((response) => {
+//       if (response) {
+//         return response;
+//       }
+
+//       const fetchRequest = event.request.clone();
+
+//       return fetch(fetchRequest).then((response) => {
+//         if (!response || response.status !== 200 || response.type !== "basic") {
+//           return response;
+//         }
+
+//         const responseToCache = response.clone();
+
+//         event.waitUntil(
+//           caches.open(CACHE_NAME).then((cache) => {
+//             cache.put(event.request, responseToCache);
+//           })
+//         );
+
+//         return response;
+//       });
+//     })
+//   );
+// });
+
+// self.addEventListener("activate", (event) => {
+//   event.waitUntil(
+//     caches
+//       .keys()
+//       .then((cacheNames) =>
+//         Promise.all(
+//           cacheNames
+//             .filter((cacheName) => cacheName !== CACHE_NAME)
+//             .map((cacheName) => caches.delete(cacheName))
+//         )
+//       )
+//   );
+// });
+
 self.addEventListener("install", (event) => {
   self.skipWaiting();
 
@@ -72,29 +122,51 @@ self.addEventListener("install", (event) => {
   );
 });
 
+// use network first then cache
+// self.addEventListener("fetch", function (event) {
+//   event.respondWith(
+//     fetch(event.request).catch(function () {
+//       return caches.match(event.request);
+//     })
+//   );
+// });
+
+// use cache first
 self.addEventListener("fetch", (event) => {
+  // non GET requests are not cached and requests to other origins are not cached
+  if (
+    event.request.method !== "GET" ||
+    !event.request.url.startsWith(self.location.origin)
+  ) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // handle runtime GET requests for data from /potd route
+  if (event.request.url.includes("/potd")) {
+    // make network request and fallback to cache if network request fails (offline)
+    event.respondWith(
+      fetch(event.request).catch(function () {
+        return caches.match(event.request);
+      })
+    );
+    return;
+  }
+
+  // use cache first for all other requests for performance
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        return response;
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
       }
 
-      const fetchRequest = event.request.clone();
-
-      return fetch(fetchRequest).then((response) => {
-        if (!response || response.status !== 200 || response.type !== "basic") {
-          return response;
-        }
-
-        const responseToCache = response.clone();
-
-        event.waitUntil(
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          })
-        );
-
-        return response;
+      // request is not in cache. make network request and cache the response
+      return caches.open(CACHE_NAME).then((cache) => {
+        return fetch(event.request).then((response) => {
+          return cache.put(event.request, response.clone()).then(() => {
+            return response;
+          });
+        });
       });
     })
   );
