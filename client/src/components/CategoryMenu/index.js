@@ -15,7 +15,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Container, Box } from "@material-ui/core";
-import { Link, scroller } from "react-scroll";
+import { Link, scroller, scrollToTop, animateScroll } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   catOption: {
@@ -39,6 +39,7 @@ function CategoryMenu() {
 
   const [state, dispatch] = useStoreContext();
   const [expanded, setExpanded] = React.useState(false);
+  const [expandCount, setCount] = React.useState(0);
 
   const { categories } = state;
 
@@ -65,6 +66,14 @@ function CategoryMenu() {
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
+
+    setCount(
+      isExpanded
+        ? (prevExpandCount) => prevExpandCount + 1
+        : (prevExpandCount) => prevExpandCount - 1
+    );
+    !isExpanded & (expandCount <= 1) && resetScroll();
+    isExpanded && scrollToItem(panel);
   };
 
   const handleClick = (id) => {
@@ -74,7 +83,7 @@ function CategoryMenu() {
     });
   };
 
-  const scrollToTop = (item) => {
+  const scrollToItem = (item) => {
     scroller.scrollTo(item, {
       offset: -60,
       smooth: true,
@@ -83,12 +92,18 @@ function CategoryMenu() {
     });
   };
 
+  const resetScroll = () => {
+    // window.scrollTo(0, 0);
+    const scroll = animateScroll;
+    scroll.scrollToTop({ delay: 0, duration: 400 });
+  };
+  console.log(expandCount);
   return (
     <Container maxWidth="lg" style={{ marginTop: "2rem" }}>
       {categories.map((item) => (
         <Accordion
           TransitionProps={{ unmountOnExit: true }}
-          expanded={expanded === item.name}
+          // expanded={expanded === item.name}
           onChange={handleChange(item.name)}
           key={item._id}
           className={classes.catOption}
@@ -101,9 +116,8 @@ function CategoryMenu() {
             aria-controls="panel1bh-content"
             id={item.name}
             name={item.name}
-            onClick={() => {
-              scrollToTop(item.name);
-            }}
+            // onClick={() => {
+            // }}
           >
             <Typography className={classes.catOptionTitle}>
               {item.name}
