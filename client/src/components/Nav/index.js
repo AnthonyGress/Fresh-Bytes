@@ -119,7 +119,7 @@ export default function MenuAppBar() {
           {isMobile ? (
             <>
               <Link to="/">
-                <Box p={1} className={classes.brandWrapper}>
+                <Box p={0.5} className={classes.brandWrapper}>
                   <img
                     src={logo}
                     alt="fresh bytes logo"
@@ -170,7 +170,7 @@ export default function MenuAppBar() {
           ) : (
             <>
               <Link to="/">
-                <Box p={1} className={classes.brandWrapper}>
+                <Box p={0.5} className={classes.brandWrapper}>
                   <img
                     src={logo}
                     alt="fresh bytes logo"
