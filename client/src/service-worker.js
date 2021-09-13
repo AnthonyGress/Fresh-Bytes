@@ -2,6 +2,9 @@
 const CACHE_NAME = "fresh-bytes.appcache";
 const urlsToCache = [
   "/",
+  "/about",
+  "/menu",
+  "/order",
   "icons/icon-72x72.png",
   "icons/icon-96x96.png",
   "icons/icon-128x128.png",
