@@ -31,8 +31,6 @@ const urlsToCache = [
   "launch-screens/launch-screen-2208x1242.png",
   "launch-screens/launch-screen-750x1334.png",
   "launch-screens/launch-screen-1334x750.png",
-  "launch-screens/launch-screen-750x1334.png",
-  "launch-screens/launch-screen-750x1334.png",
   "launch-screens/launch-screen-640x1136.png",
   "launch-screens/launch-screen-1136x640.png",
   "favicons/apple-touch-icon-57x57.png",
