@@ -10,7 +10,7 @@ import "./index.css";
 import App from "./App";
 // import LocalServiceWorkerRegister from "./sw-register";
 
-import * as serviceWorker from "./serviceWorker";
+import * as serviceWorker from "./service-worker";
 
 let theme = createTheme({
   palette: {
