@@ -66,14 +66,16 @@ function CategoryMenu() {
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
+    // resetScroll();
+    scrollToItem(panel);
 
-    setCount(
-      isExpanded
-        ? (prevExpandCount) => prevExpandCount + 1
-        : (prevExpandCount) => prevExpandCount - 1
-    );
-    !isExpanded & (expandCount <= 1) && resetScroll();
-    isExpanded && scrollToItem(panel);
+    // setCount(
+    //   isExpanded
+    //     ? (prevExpandCount) => prevExpandCount + 1
+    //     : (prevExpandCount) => prevExpandCount - 1
+    // );
+    // !isExpanded & (expandCount <= 1) && resetScroll();
+    // isExpanded && scrollToItem(panel);
   };
 
   const handleClick = (id) => {
@@ -107,7 +109,7 @@ function CategoryMenu() {
       {categories.map((item) => (
         <Accordion
           TransitionProps={{ unmountOnExit: true }}
-          // expanded={expanded === item.name}
+          expanded={expanded === item.name}
           onChange={handleChange(item.name)}
           key={item._id}
           className={classes.catOption}
@@ -120,8 +122,7 @@ function CategoryMenu() {
             aria-controls="panel1bh-content"
             id={item.name}
             name={item.name}
-            // onClick={() => {
-            // }}
+            onClick={() => {}}
           >
             <Typography className={classes.catOptionTitle}>
               {item.name}

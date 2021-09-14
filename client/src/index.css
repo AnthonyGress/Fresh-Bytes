@@ -356,6 +356,10 @@ input:focus {
   /* min-height: 100vh; */
 }
 
+#order {
+  min-height: 150vh;
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
