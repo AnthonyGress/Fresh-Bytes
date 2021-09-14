@@ -9,7 +9,7 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build",
-    "create-pwa": "create-pwa --icon=\"FreshBytesLogoOnly.png\" --launch=\"FreshBytesLogo.png\""
+    "pwa": "create-pwa --icon=\"Icon.png\" --launch=\"Icon.png\""
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,9 @@
     "concurrently": "^5.1.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
-    "prettier": "^2.1.2",
+    "prettier": "^2.1.2"
+  },
+  "dependencies": {
     "create-pwa": "^2.3.1"
   }
 }
