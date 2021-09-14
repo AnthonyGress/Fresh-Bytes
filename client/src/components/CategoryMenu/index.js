@@ -86,7 +86,7 @@ function CategoryMenu() {
   const scrollToItem = (item) => {
     const isMobile = window.outerWidth < 968;
     let offsetVal;
-    isMobile ? (offsetVal = -72) : (offsetVal = -60);
+    isMobile ? (offsetVal = -84) : (offsetVal = -60);
     scroller.scrollTo(item, {
       offset: offsetVal,
       smooth: true,

@@ -23,6 +23,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Account from "./pages/Account";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollTopTop";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -47,26 +48,29 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <main>
-          <StoreProvider>
-            <Nav />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/success" component={Success} />
-              <Route exact path="/menu" component={Menu} />
-              <Route exact path="/order" component={Order} />
-              <Route exact path="/contact" component={Contact} />
-              <Route exact path="/account" component={Account} />
-              <Route exact path="/orderHistory" component={OrderHistory} />
-              <Route exact path="/products/:id" component={Detail} />
-              {/* <Route component={NoMatch} /> */}
-            </Switch>
-            <Footer />
-          </StoreProvider>
-        </main>
+        <ScrollToTop>
+          <main>
+            <StoreProvider>
+              <Nav />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/success" component={Success} />
+                <Route exact path="/menu" component={Menu} />
+                <Route exact path="/order" component={Order} />
+                <Route exact path="/contact" component={Contact} />
+                <Route exact path="/account" component={Account} />
+                <Route exact path="/orderHistory" component={OrderHistory} />
+                <Route exact path="/products/:id" component={Detail} />
+                {/* <Route component={NoMatch} /> */}
+              </Switch>
+
+              <Footer />
+            </StoreProvider>
+          </main>
+        </ScrollToTop>
       </Router>
     </ApolloProvider>
   );
