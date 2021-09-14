@@ -357,7 +357,7 @@ input:focus {
 }
 
 #order {
-  min-height: 150vh;
+  /* min-height: 150vh; */
 }
 
 @media screen and (max-width: 768px) {
