@@ -13,7 +13,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import { Link, NavLink } from "react-router-dom";
-const drawerWidth = "420px";
+const drawerWidth = 420;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,10 +31,16 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerHeader: {
     justifyContent: "space-between",
-    paddingTop: "env(safe-area-inset-top, 0) !important",
-    paddingLeft: "env(safe-area-inset-left, 0) !important",
-    paddingRight: "env(safe-area-inset-right, 0) !important",
-    paddingBottom: "0 !important",
+    paddingTop: "env(safe-area-inset-top, 0)",
+    paddingLeft: "env(safe-area-inset-left, 0)",
+    paddingRight: "env(safe-area-inset-right, 0)",
+    paddingBottom: "calc(env(safe-area-inset-bottom, 0)/2)",
+    padding: theme.spacing(0, 1),
+    alignItems: "center !important",
+    display: "flex",
+    ...theme.mixins.toolbar,
+    background: theme.palette.primary.main,
+    maxHeight: "100px",
   },
   drawerPaper: {
     width: drawerWidth,
@@ -86,14 +92,7 @@ function DrawerComponent() {
           paper: classes.drawerPaper,
         }}
       >
-        <Box
-          className={classes.drawerHeader}
-          style={{
-            background: "var(--primary)",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        <Box className={classes.drawerHeader}>
           <Typography variant="h5" className={classes.navBrand}>
             FBK
           </Typography>

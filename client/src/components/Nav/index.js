@@ -34,10 +34,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   menu: {
-    marginTop: "env(safe-area-inset-top, 0) !important",
-    paddingLeft: "env(safe-area-inset-left, 0) !important",
-    paddingRight: "env(safe-area-inset-right, 0) !important",
-    paddingBottom: "0 !important",
+    marginTop: "env(safe-area-inset-top, 0)",
+    paddingLeft: "env(safe-area-inset-left, 0)",
+    paddingRight: "env(safe-area-inset-right, 0)",
+    paddingBottom: "0",
   },
   nav: {
     backgroundColor: theme.palette.primary.main,
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   logo: {
-    maxHeight: "60px",
+    maxHeight: "50px",
   },
   brandWrapper: {
     display: "flex",
