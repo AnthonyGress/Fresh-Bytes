@@ -1,5 +1,5 @@
 {
-  "name": "fresh-bytes",
+  "name": "fresh-bytes-main",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -18,9 +18,7 @@
     "concurrently": "^5.1.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
-    "prettier": "^2.1.2"
-  },
-  "dependencies": {
+    "prettier": "^2.1.2",
     "create-pwa": "^2.3.1"
   }
 }

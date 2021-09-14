@@ -1,5 +1,5 @@
 {
-  "name": "fresh-bytes",
+  "name": "fresh-bytes-client",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
@@ -12,9 +12,6 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "create-pwa": "^2.3.1",
-    "dotenv": "^8.2.0",
-    "google-maps-react-17": "^2.1.0",
     "graphql": "^15.5.2",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
