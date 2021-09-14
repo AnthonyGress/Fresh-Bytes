@@ -9,7 +9,7 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build",
-    "create-pwa": "create-pwa --icon=\"FreshBytesLogoOnly.png\" --launch=\"FreshBytesLogoOnly.png\""
+    "create-pwa": "create-pwa --icon=\"FreshBytesLogoOnly.png\" --launch=\"FreshBytesLogo.png\""
   },
   "keywords": [],
   "author": "",
@@ -21,8 +21,6 @@
     "prettier": "^2.1.2"
   },
   "dependencies": {
-    "@apollo/client": "^3.4.10",
-    "apollo-client": "^2.6.10",
     "create-pwa": "^2.3.1"
   }
 }
