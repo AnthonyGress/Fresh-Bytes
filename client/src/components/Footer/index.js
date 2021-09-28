@@ -43,20 +43,21 @@ export default function Footer() {
               <Typography align="center">Help</Typography>
             </Box>
             <Box className={classes.flexWrapper}>
-              <Box>
-                <Link href="/" color="inherit">
-                  Contact
-                </Link>
-              </Box>
-              <a
+              <Link
                 href="https://maps.google.com/maps?q=28.600865410611277,%20-81.32605610659066&ll=28.600865410611277,%20-81.32605610659066&z=17"
                 target="_blank"
                 rel="noreferrer"
+                color="inherit"
               >
                 Find Us
-              </a>
+              </Link>
               <Box>
-                <Link href="/" color="inherit">
+                <Link href="/login" color="inherit">
+                  Sign In
+                </Link>
+              </Box>
+              <Box>
+                <Link href="/signup" color="inherit">
                   Sign up
                 </Link>
               </Box>
@@ -88,17 +89,32 @@ export default function Footer() {
             </Box>
             <Box className={classes.flexWrapper}>
               <Box>
-                <Link href="/" className={classes.root}>
+                <Link
+                  href="https://facebook.com"
+                  className={classes.root}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Facebook fontSize="large" />
                 </Link>
               </Box>
               <Box>
-                <Link href="/" className={classes.root}>
+                <Link
+                  href="https://twitter.com"
+                  className={classes.root}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Twitter fontSize="large" />
                 </Link>
               </Box>
               <Box>
-                <Link href="/" className={classes.root}>
+                <Link
+                  href="https://www.instagram.com/"
+                  className={classes.root}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Instagram fontSize="large" />
                 </Link>
               </Box>
