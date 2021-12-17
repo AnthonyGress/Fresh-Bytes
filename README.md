@@ -11,7 +11,7 @@ A full stack MERN app that serves as a front end and CMS for a restaurant.
 
 Tools: JavaScript, React JS, Material UI, Express JS, bcrypt, JSON Web Token (JWT), MongoDB, Mongoose, Node JS
 
-This application's structure follows the Model-View-Controller paradigm. It uses **_React.js_** for managing Views, **_MongoDB_** and **_Mongoose_** to connect to a NoSQL database for the Models, and **_Express.js_** for the Controller and **_Node.ks_** for the server side logic. **_Material UI_** was used to create the user interface and user experience.
+This application's structure follows the Model-View-Controller paradigm. It uses **_React.js_** for managing Views, **_MongoDB_** and **_Mongoose_** to connect to a NoSQL database for the Models, and **_Express.js_** for the Controller and **_Node.js_** for the server side logic. **_Material UI_** was used to create the user interface and user experience.
 
 Additionally it utilizes **_dotenv_** for environment variables, **_bcrypt_** - to hash passwords, and **_JWT_** for authentication.
 
