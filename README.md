@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-<a href="https://freshbyteskitchen.herokuapp.com/" target="_blank"><div align="center"><img width="1917" alt="fresh bytes screenshot" src="./client/src/assets/images/FBK screenshot.png">
+<a href="https://freshbytes.up.railway.app/" target="_blank"><div align="center"><img width="1917" alt="fresh bytes screenshot" src="./client/src/assets/images/FBK screenshot.png">
 </div></a>
 
 ## Description
@@ -37,7 +37,7 @@ npm i
 
 ## Usage
 
-This site is live at [Fresh Bytes App](https://freshbyteskitchen.herokuapp.com/)
+This site is live at [Fresh Bytes App](https://freshbytes.up.railway.app/)
 
 To use this node app and create your own local server, clone the repo down, use the terminal to cd into the root directory. Then run:
 
