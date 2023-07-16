@@ -1,11 +1,19 @@
-FROM --platform=linux/amd64 node:16.16.0
+FROM --platform=linux/amd64 node:16.20.1-slim AS build
 
 WORKDIR /app
 
 COPY . .
 
 RUN npm install
-RUN npm run build
+RUN npm run build-local
+
+FROM --platform=linux/amd64 node:16.20.1-slim
+
+WORKDIR /app
+
+COPY --from=build app/client/build/ ./client/build
+COPY --from=build app/package.json ./
+COPY --from=build app/server ./
 
 EXPOSE 8080
 

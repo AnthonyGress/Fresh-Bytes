@@ -8,7 +8,7 @@ import {
 
 import "./index.css";
 import App from "./App";
-import LocalServiceWorkerRegister from "./sw-register";
+// import LocalServiceWorkerRegister from "./sw-register";
 
 import * as serviceWorker from "./serviceWorker";
 
