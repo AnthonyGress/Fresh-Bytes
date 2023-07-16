@@ -13,7 +13,7 @@ WORKDIR /app
 
 COPY --from=build app/client/build/ ./client/build
 COPY --from=build app/package.json ./
-COPY --from=build app/server ./
+COPY --from=build app/server ./server
 
 EXPOSE 8080
 
